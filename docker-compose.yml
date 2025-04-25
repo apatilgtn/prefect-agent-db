@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres_db:
+    image: postgres:14-alpine
+    container_name: prefect_agent_db
+    environment:
+      POSTGRES_USER: prefect_user
+      POSTGRES_PASSWORD: prefect_password # Use a stronger password in reality
+      POSTGRES_DB: prefect_demo_db
+    ports:
+      - "5433:5432" # Map host port 5433 to container port 5432 (avoid conflict with default 5432)
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Persist data (optional for demo)
+
+volumes:
+  postgres_data:
