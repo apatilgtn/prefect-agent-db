@@ -1,0 +1,3 @@
+prefect>=2.10 # Use a recent version
+psycopg2-binary # PostgreSQL driver
+python-dotenv   # To load .env file
